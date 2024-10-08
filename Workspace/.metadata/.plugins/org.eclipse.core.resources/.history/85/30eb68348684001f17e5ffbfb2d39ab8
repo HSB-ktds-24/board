@@ -1,0 +1,57 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.ktdsuniversity.edu.do_to_list.bbs.service.ScheduleService;
+import com.ktdsuniversity.edu.do_to_list.bbs.vo.ScheduleWriteVO;
+
+
+
+
+@Controller
+public class ScheduleController {
+
+	@Autowired
+	private ScheduleService scheduleService;
+	
+	@GetMapping("/post/list")
+	public String showListPage() {
+		scheduleService.showAllSchedule();
+		return "main";
+	}
+	
+	@PostMapping("/post/write")
+	public String goWritePage ( ScheduleWriteVO scheduleWriteVO) {
+	
+		scheduleService.createSchedule(scheduleWriteVO);
+		
+		return "redirect:/post/list";
+	}
+	
+	@GetMapping("/post/write")
+	public String showWritePage() {
+		
+		return "write";
+	}
+	
+	@PostMapping("/post/done/{id}")
+	public String chageState(@PathVariable int id) {
+		
+		scheduleService.updateState(id);
+		
+		return "redirect:/post/list";
+	}
+	
+	@PostMapping("/post/remove/{id}")
+	public String deleteSchedule(@PathVariable int id) {
+		scheduleService.removeSchedule(id);
+		return "redircet:/post/list";
+	}
+	
+	
+	
+}

@@ -1,0 +1,8 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.service;
+
+public interface ScheduleService {
+
+	public boolean createSchedule();
+	public boolean removeSchedule();
+	
+}

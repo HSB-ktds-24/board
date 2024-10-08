@@ -1,0 +1,12 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.dao;
+
+public interface ScheduleDao {
+
+	private int isertSchedule() {
+	}
+	
+	private int deleteSchedule() {}
+	
+	
+	
+}

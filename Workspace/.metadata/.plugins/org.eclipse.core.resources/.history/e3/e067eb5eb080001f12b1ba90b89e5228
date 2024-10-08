@@ -1,0 +1,8 @@
+package com.ktdsuniversity.edu.list.vo;
+
+public class ListVO {
+	private int id;
+	private String isDone;
+	private String subject;
+	private String deadLine;
+}

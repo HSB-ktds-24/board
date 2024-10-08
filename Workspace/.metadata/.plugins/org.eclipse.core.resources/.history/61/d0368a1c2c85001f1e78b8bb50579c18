@@ -1,0 +1,14 @@
+package com.ktdsuniversity.edu.hello_spring.access.dao.impl;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+import com.ktdsuniversity.edu.hello_spring.access.dao.AccessLogDao;
+
+public class AccessLogDaoImpl extends SqlSessionDaoSupport implements AccessLogDao {
+
+	@Override
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		super.setSqlSessionTemplate(sqlSessionTemplate);
+	}
+}

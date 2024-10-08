@@ -1,0 +1,5 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.dao;
+
+public interface ScheduleDao {
+
+}

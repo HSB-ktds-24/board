@@ -1,0 +1,13 @@
+package com.ktdsuniversity.edu.hello_spring.access.vo;
+
+public class AccessLogVO {
+	private String accessLogId;
+	private String accessType;
+	private String accessEmail;
+	private String accessTime;
+	private String accessUrl;
+	private String accessMethod;
+	private String accessIp;
+	private String loginSuccessYn;
+}    
+     

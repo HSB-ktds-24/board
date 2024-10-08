@@ -1,0 +1,22 @@
+package com.ktdsuniversity.edu.do_to_list.member.dao.impl;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.stereotype.Repository;
+
+import com.ktdsuniversity.edu.do_to_list.member.dao.MemberDao;
+import com.ktdsuniversity.edu.do_to_list.member.vo.MemberWriteVO;
+
+@Repository
+public class MemberDaoImpl extends SqlSessionDaoSupport implements MemberDao{
+	@Override
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		super.setSqlSessionTemplate(sqlSessionTemplate);
+	}
+	@Override
+	public int insertNewMember(MemberWriteVO memberWriteVO) {
+		return getSqlSession().insert(NAMESPACE+".insertNewMember", memberWriteVO);
+	}
+
+}

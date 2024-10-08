@@ -1,0 +1,13 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.dao;
+
+public interface ScheduleDao {
+
+	public int insertSchedule();
+	
+	public int deleteSchedule();
+	
+	public int selectAllSchedule();
+	
+	public int fixSchedule();
+	
+}

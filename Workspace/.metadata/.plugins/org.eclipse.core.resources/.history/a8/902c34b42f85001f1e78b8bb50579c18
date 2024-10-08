@@ -1,0 +1,83 @@
+package com.ktdsuniversity.edu.hello_spring.member.service.impl;
+
+import org.apache.catalina.connector.Request;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ktdsuniversity.edu.hello_spring.common.beans.Sha;
+import com.ktdsuniversity.edu.hello_spring.common.utils.RequestUtil;
+import com.ktdsuniversity.edu.hello_spring.member.dao.MemberDao;
+import com.ktdsuniversity.edu.hello_spring.member.service.MemberService;
+import com.ktdsuniversity.edu.hello_spring.member.vo.LoginMemberVO;
+import com.ktdsuniversity.edu.hello_spring.member.vo.MemberVO;
+import com.ktdsuniversity.edu.hello_spring.member.vo.MemberWriteVO;
+
+@Service
+public class MemberServiceImpl implements MemberService{
+
+	@Autowired
+	private MemberDao memberDao;
+	@Autowired
+	private Sha sha;
+	@Override
+	public boolean createNewMember(MemberWriteVO memberWriteVO) {
+		
+		
+		String salt =sha.generateSalt();
+		
+		String password = memberWriteVO.getPassword();
+		password = sha.getEncrypt(password, salt);
+		
+		memberWriteVO.setPassword(password);
+		memberWriteVO.setSalt(salt);
+		int result = memberDao.insertNewMember(memberWriteVO);
+		return result >0;
+	}
+	
+	
+
+	@Override
+	public boolean checkAvailableEamil(String email) {
+		return this.memberDao.selectEmailCount(email)==0;
+	}
+
+
+
+	@Override
+	public MemberVO readMember(LoginMemberVO loginMemberVO) {
+		String salt =this.memberDao.selectSalt(loginMemberVO.getEmail());
+		if(salt == null) {
+			throw new IllegalArgumentException("이메일 또는 비밀번호가 올바르지 않습니다");
+			
+		}
+		
+		String password =loginMemberVO.getPassword();
+		password = this.sha.getEncrypt(password, salt);
+		loginMemberVO.setPassword(password);
+		
+		MemberVO memeberVO = this.memberDao.selectOneMember(loginMemberVO);
+		if(memeberVO == null) {
+			// 실패 횟수 증가 , 실패 시간&ip 갱신
+			loginMemberVO.setIp(RequestUtil.getIp());
+			this.memberDao.updateLoginFailState(loginMemberVO);
+			throw new IllegalArgumentException("이메일 또는 비밀번호가 올바르지 않습니다");
+			
+		}
+		// 5회 이상 1시간 이하면 로그인 실패
+		boolean isBlockState
+		= this.memberDao.selectLoginImossibleCount(loginMemberVO.getEmail())>0;
+		if(isBlockState){
+			throw new IllegalArgumentException("이메일 또는 비밀번호가 올바르지 않습니다");
+		}
+		
+		
+		//실패 횟수 실패 시간  ip 초기화
+		loginMemberVO.setIp(RequestUtil.getIp());
+		this.memberDao.updateLoginSuccessState(loginMemberVO);
+		
+		
+		
+		return memeberVO;
+	}
+
+}

@@ -1,0 +1,53 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.ktdsuniversity.edu.do_to_list.bbs.service.ScheduleService;
+import com.ktdsuniversity.edu.do_to_list.bbs.vo.ScheduleWriteVO;
+
+import jakarta.websocket.server.PathParam;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@Controller
+public class ScheduleController {
+
+	@Autowired
+	private ScheduleService scheduleService;
+	
+	@GetMapping("/post/list")
+	public String showListPage() {
+		scheduleService.showAllSchedule();
+		return "jsp파일";
+	}
+	
+	@PostMapping("/post/write")
+	public String goWritePage ( ScheduleWriteVO scheduleWriteVO) {
+	
+		scheduleService.createSchedule(scheduleWriteVO);
+		
+		return "redirect: list url";
+	}
+	
+	@GetMapping("/post/write")
+	public String showWritePage() {
+		
+		return "jsp파일";
+	}
+	
+	@PostMapping("/post/done/{id}")
+	public String chageState(@PathVariable String id) {
+		//TODO: process POST request
+		
+		return id;
+	}
+	
+	
+	
+}

@@ -1,0 +1,12 @@
+package com.ktdsuniversity.edu.do_to_list.member.dao;
+
+import com.ktdsuniversity.edu.do_to_list.member.vo.MemberWriteVO;
+
+public interface MemberDao {
+	
+	public String NAMESPACE= "com.ktdsuniversity.edu.do_to_list.member.dao.MemberDao";
+
+	public int insertNewMember(MemberWriteVO memberWriteVO);
+	
+	public int selectEmailCount(String Email);
+}

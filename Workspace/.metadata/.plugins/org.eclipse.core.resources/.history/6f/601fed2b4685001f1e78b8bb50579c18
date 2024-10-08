@@ -1,0 +1,23 @@
+package com.ktdsuniversity.edu.do_to_list.member.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ktdsuniversity.edu.do_to_list.member.dao.MemberDao;
+import com.ktdsuniversity.edu.do_to_list.member.service.MemberService;
+import com.ktdsuniversity.edu.do_to_list.member.vo.MemberWriteVO;
+
+
+@Service
+public class MemberServiceImpl implements MemberService {
+
+	@Autowired
+	private MemberDao memberDao;
+	
+	@Override
+	public boolean createNewMember(MemberWriteVO memberWriteVO) {
+		boolean result = memberDao.insertNewMember(memberWriteVO)>0;
+		return result;
+	}
+
+}

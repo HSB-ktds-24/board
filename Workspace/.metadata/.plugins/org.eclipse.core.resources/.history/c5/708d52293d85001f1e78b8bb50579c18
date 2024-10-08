@@ -1,0 +1,10 @@
+package com.ktdsuniversity.edu.do_to_list.member.dao;
+
+public interface MemberDao {
+	
+	public String NAMESPACE= "com.ktdsuniversity.edu.do_to_list.member.dao.MemberDao";
+
+	public int insertNewMember();
+	
+	
+}

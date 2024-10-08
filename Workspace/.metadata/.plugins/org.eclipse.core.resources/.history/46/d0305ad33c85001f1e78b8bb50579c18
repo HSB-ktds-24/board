@@ -1,0 +1,21 @@
+package com.ktdsuniversity.edu.do_to_list.member.dao.impl;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+import com.ktdsuniversity.edu.do_to_list.member.dao.MemberDao;
+
+@
+public class MemberDaoImpl extends SqlSessionDaoSupport implements MemberDao{
+@Override
+public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+	super.setSqlSessionTemplate(sqlSessionTemplate);
+}
+	@Override
+	public int insertNewMember() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

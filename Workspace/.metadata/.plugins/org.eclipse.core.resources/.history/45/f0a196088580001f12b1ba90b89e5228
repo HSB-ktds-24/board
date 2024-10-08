@@ -1,0 +1,10 @@
+package com.ktdsuniversity.edu.hello_spring.member.dao;
+
+import com.ktdsuniversity.edu.hello_spring.member.vo.MemberVO;
+import com.ktdsuniversity.edu.hello_spring.member.vo.MemberWriteVO;
+
+public interface MemberDao {
+
+	public int getEmailCount(String emial);
+	public int createNewMember(MemberWriteVO memberWriteVO);
+}

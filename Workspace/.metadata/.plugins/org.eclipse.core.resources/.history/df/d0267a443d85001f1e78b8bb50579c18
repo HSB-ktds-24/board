@@ -1,0 +1,5 @@
+package com.ktdsuniversity.edu.do_to_list.member.vo;
+
+public class MemberWriteVO {
+
+}

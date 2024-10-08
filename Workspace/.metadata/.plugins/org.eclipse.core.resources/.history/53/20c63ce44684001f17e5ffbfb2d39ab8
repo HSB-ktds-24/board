@@ -1,0 +1,22 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.vo;
+
+public class ScheduleWriteVO {
+
+	private String subject;	
+	private String deadline;
+	
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getDeadLine() {
+		return deadline;
+	}
+	public void setDeadLine(String deadline) {
+		this.deadline = deadline;
+	}
+
+	
+}

@@ -1,0 +1,42 @@
+package com.ktdsuniversity.edu.do_to_list.member.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.ktdsuniversity.edu.do_to_list.member.service.MemberService;
+import com.ktdsuniversity.edu.do_to_list.member.vo.MemberWriteVO;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+
+@Controller
+public class MemberController {
+
+	@Autowired
+	private MemberService memberService;
+	
+	@GetMapping("/member/regist")
+	private String showRegistView() {
+		
+		return "memberregist";
+	}
+	@PostMapping("/member/regist")
+	public String doRegist( MemberWriteVO memberWriteVO ) {
+	
+		memberService.createNewMember(memberWriteVO);
+		return "redirect:/member/login";
+	}
+	
+	@GetMapping("/member/login")
+	private String showLoginView() {
+		return "memberlogin";
+	}
+	
+	@PostMapping("/member/login")
+	public String doLogin( MemberWriteVO memberWriteVO) {
+		return "redirect:/post/list";
+	}
+	
+}

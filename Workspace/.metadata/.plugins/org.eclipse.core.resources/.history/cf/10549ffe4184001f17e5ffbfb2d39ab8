@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: to-do-list
+  # 데이터 베이스 연결을 위한 설정
+  datasource:  
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: ToDoList
+    password: 1234

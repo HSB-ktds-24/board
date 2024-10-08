@@ -1,0 +1,15 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.dao;
+
+import com.ktdsuniversity.edu.do_to_list.bbs.vo.ScheduleWriteVO;
+
+public interface ScheduleDao {
+
+	public int insertSchedule(ScheduleWriteVO scheduleWriteVO);
+	
+	public int deleteSchedule(int id);
+	
+	public int selectAllSchedule();
+	
+	public int updateSchedule(int id);
+	
+}

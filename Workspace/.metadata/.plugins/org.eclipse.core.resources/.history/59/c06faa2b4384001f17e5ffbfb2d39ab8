@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.ktdsuniversity.edu.list.dao.ScheduleListDao">
+	<insert id="insertSchedule" 
+	parameterType="com.ktdsuniversity.edu.list.vo.WriteScheduleVO">
+	INSERT INTO [테이블명]
+	 ( ID,
+	   SUBJECT,
+	   DEADLINE,
+	   ISDONE)
+	 VALUES
+	 ( SEQ_PLANBOARD_PK.NEXTVAL,
+	  #{subject},
+	  TO_DATE(#{deadLine}, 'YYYY-MM-DD'),
+	  0)
+	</insert>
+	<update id="updateState" parameterType="_int">
+	UPDATE [테이블명]
+	   SET ISDONE = 'Y'
+	 WHERE ID = #{_parameter}
+	</update>
+	
+	<delete id="deleteSchedule" parameterType="_int">
+	 DELETE FROM [테이블명]
+	  WHERE ID = #{_parameter}
+	</delete>
+	<select id="selectAllScheduleList" 
+	resultType="com.ktdsuniversity.edu.list.vo.ScheduleVO">
+	SELECT ID 
+		 , SUBJECT 
+		 , TO_CHAR(DEADLINE, 'YYYY-MM-DD') DEADLINE
+		 , ISDONE 
+	  FROM PLANBOARD
+	</select>
+</mapper>

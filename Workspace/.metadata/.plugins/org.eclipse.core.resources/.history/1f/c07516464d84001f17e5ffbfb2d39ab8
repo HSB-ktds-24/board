@@ -1,0 +1,39 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.dao.impl;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.ktdsuniversity.edu.do_to_list.bbs.dao.ScheduleDao;
+
+@Repository
+public class ScheduleDaoImpl extends SqlSessionDaoSupport implements ScheduleDao{
+
+	
+	@Autowired
+	@Override
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		super.setSqlSessionTemplate(sqlSessionTemplate);
+	}
+	
+	@Override
+	public int insertSchedule() {
+		
+		
+		return 0;
+	}
+
+	@Override
+	public int deleteSchedule() {
+
+		return 0;
+	}
+
+	@Override
+	public int selectAllSchedule() {
+
+		return 0;
+	}
+
+}

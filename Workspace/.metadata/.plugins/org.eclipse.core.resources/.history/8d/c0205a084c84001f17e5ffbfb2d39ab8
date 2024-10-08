@@ -1,0 +1,34 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ktdsuniversity.edu.do_to_list.bbs.dao.ScheduleDao;
+import com.ktdsuniversity.edu.do_to_list.bbs.service.ScheduleService;
+
+@Service
+public class ScheduleServiceImpl implements ScheduleService{
+
+	@Autowired
+	private ScheduleDao scheduleDao;
+	@Override
+	public boolean createSchedule() {
+		
+		int insertRow = scheduleDao.insertSchedule();
+		
+		return insertRow >0;
+	}
+
+	@Override
+	public boolean removeSchedule() {
+		int  removeRow = scheduleDao.deleteSchedule();
+		return removeRow >0;
+	}
+
+	@Override
+	public boolean updateState() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

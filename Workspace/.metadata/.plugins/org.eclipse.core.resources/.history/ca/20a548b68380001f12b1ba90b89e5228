@@ -1,0 +1,6 @@
+package com.ktdsuniversity.edu.hello_spring.member.service;
+
+public interface MemberService {
+
+	public boolean createNewMember(MemberVO memberVO);
+}

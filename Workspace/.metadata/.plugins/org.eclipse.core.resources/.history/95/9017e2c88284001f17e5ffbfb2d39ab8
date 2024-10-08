@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <div class="table-box">
+      <div>할일</div>
+      <input type="text" />
+      <div>기간</div>
+      <input type="date" />
+    </div>
+    <button><a href="">저장</a></button>
+  </body>
+</html>

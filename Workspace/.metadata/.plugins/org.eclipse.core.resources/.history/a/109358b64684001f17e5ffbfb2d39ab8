@@ -1,0 +1,9 @@
+package com.ktdsuniversity.edu.do_to_list.bbs.vo;
+
+public class ScheduleVO {
+
+	private String id;
+	private String isDone;
+	private String subject;
+	private String deadLine;
+}

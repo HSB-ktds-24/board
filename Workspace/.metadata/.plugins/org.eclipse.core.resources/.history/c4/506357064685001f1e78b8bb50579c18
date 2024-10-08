@@ -1,0 +1,9 @@
+package com.ktdsuniversity.edu.do_to_list.member.service;
+
+import com.ktdsuniversity.edu.do_to_list.member.vo.MemberWriteVO;
+
+public interface MemberService {
+
+	public boolean createNewMember(MemberWriteVO memberWriteVO);
+	
+}

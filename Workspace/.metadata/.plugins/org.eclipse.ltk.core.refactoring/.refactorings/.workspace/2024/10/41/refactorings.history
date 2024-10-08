@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;hello-spring-1&apos; to &apos;TODOLIST&apos;" description="Rename resource &apos;hello-spring-1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/hello-spring-1" name="TODOLIST" stamp="1728262035879" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;TODOLIST&apos; to &apos;todolist&apos;" description="Rename resource &apos;TODOLIST&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/TODOLIST" name="todolist" stamp="1728262044822" updateReferences="true"/>
+</session>

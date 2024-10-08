@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: hello-spring
+  # 데이터 베이스 연결을 위한 설정
+  datasource:  
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: SPRING_BOOT
+    password: 1234
+  #jsp를 사용하기 위해 jsp 파일들의 경로를 설정
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
